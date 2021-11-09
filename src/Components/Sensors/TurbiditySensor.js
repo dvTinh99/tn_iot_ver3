@@ -1,25 +1,51 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, Dimensions, StyleSheet} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
-
+import database from '@react-native-firebase/database';
 const TurbiditySensor = () => {
+
+  const [doDuc,setDoDuc] = useState([0]);
+  const [time,setTime] = useState([]);
+
+  useEffect(() => {
+    database()
+    .ref('/value_of_sensors')
+    .on('value', snapshot => {
+      var date_time = [];
+      var turbidity = [];
+      snapshot.forEach((snap)=> {
+        console.log("tur",snap.child("turbidity").val());
+        // var now = Time("2012-11-02 21:00:29").format('MMM DD, YYYY');
+        let hour = snap.child("datetime").val().split(' ')[1];
+        if(date_time.length > 3){
+          date_time.shift();
+          date_time.push(hour);
+        }else{
+          date_time.push(hour);
+        }
+        //ánh sáng
+        if(turbidity.length > 3){
+          turbidity.shift();
+          turbidity.push(snap.child("turbidity").val())
+        }else{
+          turbidity.push(snap.child("turbidity").val())
+        }
+      });
+      setDoDuc(turbidity);
+      setTime(date_time);
+    });
+  }, []);
+
   return (
     <View>
       <Text>Độ đục nước</Text>
       <LineChart
         style={styles.lineChart}
         data={{
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          labels: time,
           datasets: [
             {
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-              ],
+              data: doDuc,
             },
           ],
         }}

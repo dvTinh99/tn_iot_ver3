@@ -16,10 +16,7 @@ const LightSensor = () => {
 
   const [cuongDo,setCuongDo] = useState([0,0,0]);
   const [time,setTime] = useState([]);
-  const [nhietDo,setNhietDo] = useState([]);
-  const [doDuc,setDoDuc] = useState([]);
 
-    
   useEffect(() => {
     database()
     .ref('/value_of_sensors')
