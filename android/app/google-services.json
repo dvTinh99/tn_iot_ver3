@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "654766353497",
+    "firebase_url": "https://iot-microalgea-default-rtdb.firebaseio.com",
+    "project_id": "iot-microalgea",
+    "storage_bucket": "iot-microalgea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654766353497:android:75e6d964061e91692e9548",
+        "android_client_info": {
+          "package_name": "com.tn_iot_ver3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654766353497-3eoana796ai1f8o8gqbjusats0jti7ce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAudTDPAOkjXvIrgAwhyHhhk0UkLa20d9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654766353497-3eoana796ai1f8o8gqbjusats0jti7ce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
