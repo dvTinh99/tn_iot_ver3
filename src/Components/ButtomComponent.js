@@ -1,45 +1,96 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
 import database from '@react-native-firebase/database';
 const ButtomComponent = () => {
-  const buttonClickedHandler = () => {
+
+  var [range,setRange] = useState();
+  var [light,setLight] = useState();
+  var [pump,setPump] = useState();
+
+  var [auto,setAuto] = useState();
+
+  useEffect(() => {
     database()
-    .ref('/auto_mode')
-    .on('value', snapshot => {
-      console.log(snapshot.val());
+    .ref('/')
+    .on('value',snapshot => {
+      setAuto(snapshot.child('auto_mode').val());
+      setRange(snapshot.child('control_devices/airpump').val());
+      setLight(snapshot.child('control_devices/led/status').val());
+      setPump(snapshot.child('control_devices/motor/status').val());
     });
-    
-  };
+
+  },[])
+
+  const lightButtonClickedHandler = () => {
+    light = !light;
+    database()
+      .ref('/control_devices/led')
+      .update({
+        status: light,
+      })
+      .then(() => {
+      });
+  }
+
+  const pumpButtonClickedHandler = () => {
+    pump = ! pump;
+    database()
+      .ref('/control_devices/motor')
+      .update({
+        status: pump,
+      })
+      .then(() => {
+      });
+  }
+
   return (
     <View>
       <View style={styles.slider_view}>
         <Text>Công Suất Máy Bơm</Text>
+        <Text>{range}</Text>
         <Slider
+          disabled={auto}
           style={{width: 200}}
           minimumValue={0}
-          maximumValue={1}
-          minimumTrackTintColor="#FFFFFF"
+          maximumValue={255}
+          step={5}
+          minimumTrackTintColor="tomato"
           maximumTrackTintColor="#000000"
+          thumbTintColor="tomato"
+          value={range}
+          onValueChange={value => {
+            setRange(parseInt( value ));
+            database()
+              .ref('/control_devices')
+              .update({
+                airpump: value,
+              })
+              .then(() => {
+              });
+            }
+          }
         />
       </View>
       <View style={styles.viewButtons}>
         <View style={styles.light_view}>
           <Text>Đèn</Text>
           <TouchableOpacity
-            onPress={buttonClickedHandler}
-            style={styles.light_button}>
-            <Text>On</Text>
+            disabled = {auto}
+            onPress={lightButtonClickedHandler}
+            style={[styles.light_button, { backgroundColor: light ? '#F5DEB3' : '#ffffff' }]}
+          >
+            <Text>{light ? "On" : "Off" }</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.pumps_view}>
           <Text>Máy Bơm</Text>
           <TouchableOpacity
-            disabled={true}
-            onPress={buttonClickedHandler}
-            style={styles.pumps_button}>
-            <Text>On</Text>
+          disabled = {auto}
+            onPress={pumpButtonClickedHandler}
+            style={[styles.pumps_button, { backgroundColor: pump ? '#F5DEB3' : '#ffffff' }]}>
+             <Text>{pump ? "On" : "Off" }</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -54,7 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 75,
-    backgroundColor: '#F5DEB3',
+    // backgroundColor: '#F5DEB3' ,
   },
   pumps_button: {
     width: 75,
@@ -62,7 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 75,
-    backgroundColor: '#66FFFF',
+    // backgroundColor: '#66FFFF',
   },
   viewButtons: {
     justifyContent: 'center',
