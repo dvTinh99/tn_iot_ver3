@@ -8,13 +8,16 @@ const ButtomComponent = () => {
   var [light,setLight] = useState();
   var [pump,setPump] = useState();
 
+  var [auto,setAuto] = useState();
+
   useEffect(() => {
     database()
-    .ref('/control_devices')
+    .ref('/')
     .on('value',snapshot => {
-      setRange(snapshot.child('airpump').val());
-      setLight(snapshot.child('led/status').val());
-      setPump(snapshot.child('motor/status').val());
+      setAuto(snapshot.child('auto_mode').val());
+      setRange(snapshot.child('control_devices/airpump').val());
+      setLight(snapshot.child('control_devices/led/status').val());
+      setPump(snapshot.child('control_devices/motor/status').val());
     });
 
   },[])
@@ -47,6 +50,7 @@ const ButtomComponent = () => {
         <Text>Công Suất Máy Bơm</Text>
         <Text>{range}</Text>
         <Slider
+          disabled={auto}
           style={{width: 200}}
           minimumValue={0}
           maximumValue={255}
@@ -63,7 +67,6 @@ const ButtomComponent = () => {
                 airpump: value,
               })
               .then(() => {
-                console.log("air bump update");
               });
             }
           }
@@ -73,19 +76,21 @@ const ButtomComponent = () => {
         <View style={styles.light_view}>
           <Text>Đèn</Text>
           <TouchableOpacity
+            disabled = {auto}
             onPress={lightButtonClickedHandler}
             style={[styles.light_button, { backgroundColor: light ? '#F5DEB3' : '#ffffff' }]}
           >
-            <Text>On</Text>
+            <Text>{light ? "On" : "Off" }</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.pumps_view}>
           <Text>Máy Bơm</Text>
           <TouchableOpacity
+          disabled = {auto}
             onPress={pumpButtonClickedHandler}
             style={[styles.pumps_button, { backgroundColor: pump ? '#F5DEB3' : '#ffffff' }]}>
-            <Text>On</Text>
+             <Text>{pump ? "On" : "Off" }</Text>
           </TouchableOpacity>
         </View>
       </View>
