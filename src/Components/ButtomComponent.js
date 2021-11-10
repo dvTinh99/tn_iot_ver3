@@ -1,42 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Slider from '@react-native-community/slider';
 import database from '@react-native-firebase/database';
 const ButtomComponent = () => {
 
-  const [range,setRange] = useState(100);
-  const [light,setLight] = useState(true);
-  const [pump,setPump] = useState(true);
+  var [range,setRange] = useState();
+  var [light,setLight] = useState();
+  var [pump,setPump] = useState();
 
-  const buttonClickedHandler = () => {
+  useEffect(() => {
     database()
-    .ref('/auto_mode')
-    .on('value', snapshot => {
-      console.log(snapshot.val());
+    .ref('/control_devices')
+    .on('value',snapshot => {
+      setRange(snapshot.child('airpump').val());
+      setLight(snapshot.child('led/status').val());
+      setPump(snapshot.child('motor/status').val());
     });
-    
-  };
+
+  },[])
+
   const lightButtonClickedHandler = () => {
-    setLight(! light);
+    light = !light;
     database()
       .ref('/control_devices/led')
       .update({
         status: light,
       })
       .then(() => {
-        console.log("light click");
       });
   }
 
   const pumpButtonClickedHandler = () => {
-    setPump(! pump);
+    pump = ! pump;
     database()
       .ref('/control_devices/motor')
       .update({
         status: pump,
       })
       .then(() => {
-        console.log("pump click");
       });
   }
 
@@ -54,7 +55,18 @@ const ButtomComponent = () => {
           maximumTrackTintColor="#000000"
           thumbTintColor="tomato"
           value={range}
-          onValueChange={value => setRange(parseInt( value ))}
+          onValueChange={value => {
+            setRange(parseInt( value ));
+            database()
+              .ref('/control_devices')
+              .update({
+                airpump: value,
+              })
+              .then(() => {
+                console.log("air bump update");
+              });
+            }
+          }
         />
       </View>
       <View style={styles.viewButtons}>
@@ -62,7 +74,8 @@ const ButtomComponent = () => {
           <Text>Đèn</Text>
           <TouchableOpacity
             onPress={lightButtonClickedHandler}
-            style={styles.light_button}>
+            style={[styles.light_button, { backgroundColor: light ? '#F5DEB3' : '#ffffff' }]}
+          >
             <Text>On</Text>
           </TouchableOpacity>
         </View>
@@ -71,7 +84,7 @@ const ButtomComponent = () => {
           <Text>Máy Bơm</Text>
           <TouchableOpacity
             onPress={pumpButtonClickedHandler}
-            style={styles.pumps_button}>
+            style={[styles.pumps_button, { backgroundColor: pump ? '#F5DEB3' : '#ffffff' }]}>
             <Text>On</Text>
           </TouchableOpacity>
         </View>
@@ -87,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 75,
-    backgroundColor: '#F5DEB3',
+    // backgroundColor: '#F5DEB3' ,
   },
   pumps_button: {
     width: 75,
@@ -95,7 +108,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 75,
-    backgroundColor: '#66FFFF',
+    // backgroundColor: '#66FFFF',
   },
   viewButtons: {
     justifyContent: 'center',
