@@ -3,9 +3,29 @@ import {Text, View, StyleSheet, Switch} from 'react-native';
 import ButtomComponent from './ButtomComponent';
 import ScrollViewExample from './ScrollViewExample';
 
+import database from '@react-native-firebase/database';
+
 const HomeScreen = () => {
   const [isEnabled, setIsEnabled] = useState(true);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const toggleSwitch = () => {
+    setIsEnabled(previousState => !previousState);
+    database()
+      .ref('/')
+      .update({
+        auto_mode: !isEnabled,
+      })
+      .then(() => {
+      });
+    };
+
+  useEffect(() => {
+    database()
+    .ref('/auto_mode')
+    .on('value', snapshot => {
+      setIsEnabled(snapshot.val());
+    });
+    
+  }, [])
  
   return (
     <View style={styles.container}>

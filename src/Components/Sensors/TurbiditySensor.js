@@ -14,7 +14,6 @@ const TurbiditySensor = () => {
       var date_time = [];
       var turbidity = [];
       snapshot.forEach((snap)=> {
-        console.log("tur",snap.child("turbidity").val());
         // var now = Time("2012-11-02 21:00:29").format('MMM DD, YYYY');
         let hour = snap.child("datetime").val().split(' ')[1];
         if(date_time.length > 3){

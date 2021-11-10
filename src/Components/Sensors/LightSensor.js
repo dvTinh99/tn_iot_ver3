@@ -23,8 +23,6 @@ const LightSensor = () => {
     .on('value', snapshot => {
       var date_time = [];
       var anhSang = [];
-      var nhietDo = [];
-      var doDuc = [];
       snapshot.forEach((snap)=> {
         // var now = Time("2012-11-02 21:00:29").format('MMM DD, YYYY');
         let hour = snap.child("datetime").val().split(' ')[1];
@@ -35,7 +33,6 @@ const LightSensor = () => {
           date_time.push(hour);
         }
         //ánh sáng
-        console.log(snap.child("lux").val());
         if(anhSang.length > 3){
           anhSang.shift();
           anhSang.push(snap.child("lux").val())

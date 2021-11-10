@@ -5,6 +5,8 @@ import database from '@react-native-firebase/database';
 const ButtomComponent = () => {
 
   const [range,setRange] = useState(100);
+  const [light,setLight] = useState(true);
+  const [pump,setPump] = useState(true);
 
   const buttonClickedHandler = () => {
     database()
@@ -13,8 +15,31 @@ const ButtomComponent = () => {
       console.log(snapshot.val());
     });
     
-    
   };
+  const lightButtonClickedHandler = () => {
+    setLight(! light);
+    database()
+      .ref('/control_devices/led')
+      .update({
+        status: light,
+      })
+      .then(() => {
+        console.log("light click");
+      });
+  }
+
+  const pumpButtonClickedHandler = () => {
+    setPump(! pump);
+    database()
+      .ref('/control_devices/motor')
+      .update({
+        status: pump,
+      })
+      .then(() => {
+        console.log("pump click");
+      });
+  }
+
   return (
     <View>
       <View style={styles.slider_view}>
@@ -36,7 +61,7 @@ const ButtomComponent = () => {
         <View style={styles.light_view}>
           <Text>Đèn</Text>
           <TouchableOpacity
-            onPress={buttonClickedHandler}
+            onPress={lightButtonClickedHandler}
             style={styles.light_button}>
             <Text>On</Text>
           </TouchableOpacity>
@@ -45,8 +70,7 @@ const ButtomComponent = () => {
         <View style={styles.pumps_view}>
           <Text>Máy Bơm</Text>
           <TouchableOpacity
-            disabled={true}
-            onPress={buttonClickedHandler}
+            onPress={pumpButtonClickedHandler}
             style={styles.pumps_button}>
             <Text>On</Text>
           </TouchableOpacity>
