@@ -63,7 +63,7 @@ const LightSensor = () => {
           }}
           width={Dimensions.get('window').width} // from react-native
           height={200}
-          yAxisLabel="lux"
+          yAxisLabel="lux "
           yAxisSuffix=""
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{

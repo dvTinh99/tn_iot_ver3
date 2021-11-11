@@ -50,8 +50,8 @@ const TurbiditySensor = () => {
         }}
         width={Dimensions.get('window').width} // from react-native
         height={200}
-        yAxisLabel="$"
-        yAxisSuffix="k"
+        yAxisLabel="v"
+        yAxisSuffix=""
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: '#e26a00',
