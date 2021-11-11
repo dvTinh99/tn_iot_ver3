@@ -14,7 +14,6 @@ const TurbiditySensor = () => {
       var date_time = [];
       var turbidity = [];
       snapshot.forEach((snap)=> {
-        console.log("tur",snap.child("turbidity").val());
         // var now = Time("2012-11-02 21:00:29").format('MMM DD, YYYY');
         let hour = snap.child("datetime").val().split(' ')[1];
         if(date_time.length > 3){
@@ -51,8 +50,8 @@ const TurbiditySensor = () => {
         }}
         width={Dimensions.get('window').width} // from react-native
         height={200}
-        yAxisLabel="$"
-        yAxisSuffix="k"
+        yAxisLabel="v"
+        yAxisSuffix=""
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: '#e26a00',

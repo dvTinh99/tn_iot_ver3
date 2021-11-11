@@ -35,7 +35,6 @@ const LightSensor = () => {
           date_time.push(hour);
         }
         //ánh sáng
-        console.log(snap.child("lux").val());
         if(anhSang.length > 3){
           anhSang.shift();
           anhSang.push(snap.child("lux").val())
@@ -66,7 +65,7 @@ const LightSensor = () => {
           }}
           width={Dimensions.get('window').width} // from react-native
           height={200}
-          yAxisLabel="lux"
+          yAxisLabel="lux "
           yAxisSuffix=""
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{

@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Image, StyleSheet} from 'react-native';
 import HomeScreen from './HomeScreen';
 import SettingScreen from './SettingScreen';
+import HomeIcon from '../Images/feather/home.svg';
+import SettingIcon from '../Images/feather/settings.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,10 +31,7 @@ const MyTabs = () => {
        options={{
         tabBarLabel: 'Home',
         tabBarIcon: () => (
-          <Image
-          style={styles.tinyLogo}
-          source={require('../Images/home.png')}
-          />
+          <HomeIcon width={40} height={30} color={'#000000'}/>
           ),
         }}
        />
@@ -42,10 +41,7 @@ const MyTabs = () => {
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: () => (
-            <Image
-            style={styles.tinyLogo}
-            source={require('../Images/setting.png')}
-            />
+            <SettingIcon width={40} height={30} color={'#000000'}/>
             ),
           }}
       />
