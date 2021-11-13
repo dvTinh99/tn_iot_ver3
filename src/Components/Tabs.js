@@ -13,8 +13,16 @@ const MyTabs = () => {
   return (
     <Tab.Navigator
     screenOptions={{
-        showLabel: false,
+      headerStyle: {
+        backgroundColor: '#00FF7F',
+      },
+      headerTintColor: '#000000',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        alignContent : 'center'
+      },
         tabBarStyle :{
+          backgroundColor : '#00FF7F',
           position: 'absolute',
           bottom: 10,
           left: 20,
@@ -29,7 +37,7 @@ const MyTabs = () => {
        name="Home" 
        component={HomeScreen} 
        options={{
-        tabBarLabel: 'Home',
+        tabBarLabel: "home",
         tabBarIcon: () => (
           <HomeIcon width={40} height={30} color={'#000000'}/>
           ),
@@ -60,6 +68,7 @@ const Tabs = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
+    backgroundColor: '#98FB98',
   },
   tinyLogo: {
     width: 30,
