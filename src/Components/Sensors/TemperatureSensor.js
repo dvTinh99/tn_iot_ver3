@@ -43,7 +43,7 @@ const TemperatureSensor = () => {
 
   return(
     <View>
-      <Text>Nhiệt Độ Nước</Text>
+      <Text style={styles.text_style}>Nhiệt Độ Nước (°C)</Text>
         <LineChart
           style={styles.lineChart}
           data={{
@@ -56,7 +56,7 @@ const TemperatureSensor = () => {
           }}
           width={Dimensions.get('window').width} // from react-native
           height={200}
-          yAxisSuffix="°C"
+          // yAxisSuffix="°C"
           fromZero = {true}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
@@ -79,6 +79,9 @@ const styles = StyleSheet.create({
   lineChart: {
     margin: 10,
   },
+  text_style:{
+    fontWeight: 'bold',
+  }
 });
 
 export default TemperatureSensor;

@@ -37,7 +37,7 @@ const TurbiditySensor = () => {
 
   return (
     <View>
-      <Text>Độ đục nước</Text>
+      <Text style={styles.text_style}>Độ đục nước (V)</Text>
       <LineChart
         style={styles.lineChart}
         data={{
@@ -51,7 +51,7 @@ const TurbiditySensor = () => {
         width={Dimensions.get('window').width} // from react-native
         height={200}
         fromZero = {true}
-        yAxisSuffix="v"
+        // yAxisSuffix="v"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
           backgroundColor: '#e26a00',
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
   lineChart: {
     margin: 10,
   },
+  text_style:{
+    fontWeight: 'bold',
+  }
 });
 
 export default TurbiditySensor;

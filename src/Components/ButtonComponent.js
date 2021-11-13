@@ -47,7 +47,7 @@ const ButtomComponent = () => {
   return (
     <View>
       <View style={styles.slider_view}>
-        <Text>Công Suất Máy Bơm</Text>
+        <Text style={styles.text_style}>Công Suất Máy Bơm</Text>
         <Text>{range}</Text>
         <Slider
           disabled={auto}
@@ -74,7 +74,7 @@ const ButtomComponent = () => {
       </View>
       <View style={styles.viewButtons}>
         <View style={styles.light_view}>
-          <Text>Đèn</Text>
+          <Text style={styles.text_style}>Đèn</Text>
           <TouchableOpacity
             disabled = {auto}
             onPress={lightButtonClickedHandler}
@@ -85,7 +85,7 @@ const ButtomComponent = () => {
         </View>
 
         <View style={styles.pumps_view}>
-          <Text>Máy Bơm</Text>
+          <Text style={styles.text_style}>Máy Bơm</Text>
           <TouchableOpacity
           disabled = {auto}
             onPress={pumpButtonClickedHandler}
@@ -134,6 +134,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text_style:{
+    fontWeight:'bold',
+  }
 });
 
 export default ButtomComponent;

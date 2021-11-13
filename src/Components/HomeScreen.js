@@ -29,7 +29,7 @@ const HomeScreen = () => {
  
   return (
     <View style={styles.container}>
-      <Text>Auto Mode </Text>
+      <Text style={styles.text_style}>Auto Mode </Text>
       <Switch
         trackColor={{false: '#767577', true: '#81b0ff'}}
         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ADFF2F'
   },
+  text_style:{
+    fontWeight: 'bold',
+  }
 });
 
 export default HomeScreen;
