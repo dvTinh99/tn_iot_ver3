@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, Switch} from 'react-native';
-import ButtomComponent from './ButtomComponent';
+import ButtonComponent from './ButtonComponent';
 import ScrollViewExample from './ScrollViewExample';
 
 import database from '@react-native-firebase/database';
@@ -38,7 +38,7 @@ const HomeScreen = () => {
         value={isEnabled}
       />
       <ScrollViewExample />
-      <ButtomComponent />
+      <ButtonComponent />
     </View>
   );
 };

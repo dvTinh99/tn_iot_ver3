@@ -56,8 +56,8 @@ const TemperatureSensor = () => {
           }}
           width={Dimensions.get('window').width} // from react-native
           height={200}
-          yAxisLabel="C"
-          yAxisSuffix=""
+          yAxisSuffix="°C"
+          fromZero = {true}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
             backgroundColor: '#e26a00',
