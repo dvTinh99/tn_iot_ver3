@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Image, StyleSheet} from 'react-native';
 import HomeScreen from './HomeScreen';
 import SettingScreen from './SettingScreen';
+import HomeIcon from '../Images/feather/home.svg';
+import SettingIcon from '../Images/feather/settings.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,8 +13,16 @@ const MyTabs = () => {
   return (
     <Tab.Navigator
     screenOptions={{
-        showLabel: false,
+      headerStyle: {
+        backgroundColor: '#00FF7F',
+      },
+      headerTintColor: '#000000',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        alignContent : 'center'
+      },
         tabBarStyle :{
+          backgroundColor : '#00FF7F',
           position: 'absolute',
           bottom: 10,
           left: 20,
@@ -27,12 +37,9 @@ const MyTabs = () => {
        name="Home" 
        component={HomeScreen} 
        options={{
-        tabBarLabel: 'Home',
+        tabBarLabel: "home",
         tabBarIcon: () => (
-          <Image
-          style={styles.tinyLogo}
-          source={require('../Images/home.png')}
-          />
+          <HomeIcon width={40} height={30} color={'#000000'}/>
           ),
         }}
        />
@@ -42,10 +49,7 @@ const MyTabs = () => {
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: () => (
-            <Image
-            style={styles.tinyLogo}
-            source={require('../Images/setting.png')}
-            />
+            <SettingIcon width={40} height={30} color={'#000000'}/>
             ),
           }}
       />
@@ -64,6 +68,7 @@ const Tabs = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
+    backgroundColor: '#98FB98',
   },
   tinyLogo: {
     width: 30,

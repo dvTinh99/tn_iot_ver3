@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, Switch} from 'react-native';
-import ButtomComponent from './ButtomComponent';
+import ButtonComponent from './ButtonComponent';
 import ScrollViewExample from './ScrollViewExample';
 
 import database from '@react-native-firebase/database';
@@ -29,7 +29,7 @@ const HomeScreen = () => {
  
   return (
     <View style={styles.container}>
-      <Text>Auto Mode </Text>
+      <Text style={styles.text_style}>Auto Mode </Text>
       <Switch
         trackColor={{false: '#767577', true: '#81b0ff'}}
         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
@@ -38,7 +38,7 @@ const HomeScreen = () => {
         value={isEnabled}
       />
       <ScrollViewExample />
-      <ButtomComponent />
+      <ButtonComponent />
     </View>
   );
 };
@@ -47,7 +47,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: '#ADFF2F'
   },
+  text_style:{
+    fontWeight: 'bold',
+  }
 });
 
 export default HomeScreen;

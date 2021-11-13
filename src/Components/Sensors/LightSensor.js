@@ -50,7 +50,7 @@ const LightSensor = () => {
 
   return(
     <View>
-      <Text>Cường Độ Ánh Sáng</Text>
+      <Text style={styles.text_style}>Cường Độ Ánh Sáng (lux)</Text>
         <LineChart
           style={styles.lineChart}
           data={{
@@ -63,8 +63,8 @@ const LightSensor = () => {
           }}
           width={Dimensions.get('window').width} // from react-native
           height={200}
-          yAxisLabel="lux"
-          yAxisSuffix=""
+          // yAxisSuffix = " lux"
+          fromZero = {true}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
             backgroundColor: '#e26a00',
@@ -86,6 +86,9 @@ const styles = StyleSheet.create({
   lineChart: {
     margin: 10,
   },
+  text_style:{
+    fontWeight: 'bold',
+  }
 });
 
 export default LightSensor;
