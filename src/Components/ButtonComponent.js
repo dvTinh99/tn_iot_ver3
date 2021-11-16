@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
-import Slider from '@react-native-community/slider';
+// import Slider from '@react-native-community/slider';
 import database from '@react-native-firebase/database';
 const ButtomComponent = () => {
 
@@ -49,7 +49,7 @@ const ButtomComponent = () => {
       <View style={styles.slider_view}>
         <Text style={styles.text_style}>Công Suất Máy Bơm</Text>
         <Text>{range}</Text>
-        <Slider
+        {/* <Slider
           disabled={auto}
           style={{width: 200}}
           minimumValue={0}
@@ -70,7 +70,7 @@ const ButtomComponent = () => {
               });
             }
           }
-        />
+        /> */}
       </View>
       <View style={styles.viewButtons}>
         <View style={styles.light_view}>

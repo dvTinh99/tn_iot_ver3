@@ -24,7 +24,7 @@ const ScrollViewExample = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: 500,
+    marginBottom:10
   },
   scrollView: {
     borderRadius: 20,
