@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   View,
+  SafeAreaView,
   Text,
   Image,
   ImageBackground,
@@ -26,6 +27,7 @@ import {LineChart} from 'react-native-chart-kit';
 
 const ChartScreen = ({navigation}) => {
   return (
+    <SafeAreaView style={{ width:'100%', height:'89.9%'}}>
     <View
       style={{
         backgroundColor: '#f9f8fd',
@@ -59,10 +61,11 @@ const ChartScreen = ({navigation}) => {
           flexDirection: 'row',
           paddingVertical: 5,
         }}>
-
+        
         <ScrollViewExample />
       </View>
     </View>
+    </SafeAreaView>
   );
 };
 

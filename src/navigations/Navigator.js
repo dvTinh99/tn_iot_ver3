@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from '../screens/Home'
-import Detail from '../screens/Detail'
 import ChartScreen from '../screens/ChartScreen'
 import Control from '../screens/Control'
 import HomeIcon from '../Images/feather/home.svg'
