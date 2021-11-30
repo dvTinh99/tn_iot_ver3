@@ -61,8 +61,12 @@ const ChartScreen = ({navigation}) => {
           flexDirection: 'row',
           paddingVertical: 5,
         }}>
-        
+        <ScrollView 
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false} 
+        >
         <ScrollViewExample />
+        </ScrollView>
       </View>
     </View>
     </SafeAreaView>

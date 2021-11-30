@@ -1,4 +1,4 @@
-const MAX_NODES = 24 ;
+const MAX_NODES = 100 ;
 const WIDTH_LINE_CHART = MAX_NODES * 125 ;
 
 export {MAX_NODES, WIDTH_LINE_CHART}

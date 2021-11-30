@@ -42,7 +42,7 @@ const LightSensor = (props) => {
       showsHorizontalScrollIndicator={false} // to hide scroll bar
       >
         <LineChart
-        yLabelsOffset={10} // khoảng cách giữa số y và biểu đồ
+        yLabelsOffset={25} // khoảng cách giữa trục y và biểu đồ
         // verticalLabelRotation={30} 
           style={styles.lineChart}
           data={{

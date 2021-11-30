@@ -106,16 +106,7 @@ const Home = ({navigation}) => {
           {/* trong này sẽ có view nhỏ */}
           {/* nhiệt độ và độ đục */}
           <View
-            style={{
-              flexDirection: 'row',
-              borderRadius: 10,
-              width: '45%',
-              height: 80,
-              alignItems: 'center',
-              paddingHorizontal: 5,
-              backgroundColor: '#fff',
-              marginRight: 30,
-            }}>
+            style={styles.block_left}>
             <View style={{width: '72%'}}>
               <Text style={{fontWeight: 'bold', marginBottom: 10}}>
                 Nhiệt độ (°C)
@@ -128,15 +119,7 @@ const Home = ({navigation}) => {
           </View>
 
           <View
-            style={{
-              flexDirection: 'row',
-              borderRadius: 10,
-              width: '45%',
-              height: 80,
-              alignItems: 'center',
-              paddingHorizontal: 5,
-              backgroundColor: '#fff',
-            }}>
+            style={styles.block_right}>
             <View style={{width: '72%'}}>
               <Text style={{fontWeight: 'bold', marginBottom: 10}}>
                 Độ đục (V)
@@ -153,16 +136,7 @@ const Home = ({navigation}) => {
         <View style={styles.block_ngang}>
           {/* trong này sẽ có view nhỏ */}
           <View
-            style={{
-              flexDirection: 'row',
-              borderRadius: 10,
-              width: '45%',
-              height: 80,
-              alignItems: 'center',
-              paddingHorizontal: 5,
-              backgroundColor: '#fff',
-              marginRight: 30,
-            }}>
+            style={styles.block_left}>
             <View style={{width: '72%'}}>
               <Text style={{fontWeight: 'bold', marginBottom: 10}}>
                 Ánh sáng(lux)
@@ -181,15 +155,7 @@ const Home = ({navigation}) => {
           </View>
 
           <View
-            style={{
-              flexDirection: 'row',
-              borderRadius: 10,
-              width: '45%',
-              height: 80,
-              alignItems: 'center',
-              paddingHorizontal: 5,
-              backgroundColor: '#fff',
-            }}>
+            style={styles.block_right}>
             <View style={{width: '72%'}}>
               <Text style={{fontWeight: 'bold', marginBottom: 10}}>
                 Sục khí(dm3)
@@ -206,16 +172,7 @@ const Home = ({navigation}) => {
         <View style={styles.block_ngang}>
           {/* trong này sẽ có view nhỏ */}
           <View
-            style={{
-              flexDirection: 'row',
-              borderRadius: 10,
-              width: '45%',
-              height: 80,
-              alignItems: 'center',
-              paddingHorizontal: 5,
-              backgroundColor: '#fff',
-              marginRight: 30,
-            }}>
+            style={styles.block_left}>
             <View style={{width: '72%'}}>
               <Text style={{fontWeight: 'bold', marginBottom: 10}}>
                 Đèn (°C)
@@ -230,15 +187,7 @@ const Home = ({navigation}) => {
           </View>
 
           <View
-            style={{
-              flexDirection: 'row',
-              borderRadius: 10,
-              width: '45%',
-              height: 80,
-              alignItems: 'center',
-              paddingHorizontal: 5,
-              backgroundColor: '#fff',
-            }}>
+            style={styles.block_right}>
             <View style={{width: '72%'}}>
               <Text style={{fontWeight: 'bold', marginBottom: 10}}>
                 Màn che
@@ -263,7 +212,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     marginBottom: 15,
+    marginLeft:14
   },
+  block_left:{
+    flexDirection: 'row',
+    borderRadius: 10,
+    width: '45%',
+    height: 80,
+    alignItems: 'center',
+    paddingHorizontal: 5,
+    backgroundColor: '#fff',
+    marginRight: 16,
+  },
+  block_right:{
+    flexDirection: 'row',
+    borderRadius: 10,
+    width: '45%',
+    height: 80,
+    alignItems: 'center',
+    paddingHorizontal: 5,
+    backgroundColor: '#fff',
+  }
 });
 
 export default Home;
