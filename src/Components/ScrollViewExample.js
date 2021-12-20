@@ -16,12 +16,10 @@ const ScrollViewExample = () => {
 
   useEffect(() => {
     database()
-      .ref('/')
-      .on('value', snapshotAll => {
-        var checkData = snapshotAll.hasChild("value_of_sensors");
+      .ref('/value_of_sensors')
+      .on('value', snapshot  => {
+        var checkData = snapshot.exists();
         if(checkData){
-          var snapshot = snapshotAll.child("value_of_sensors");
-          console.log(snapshot);
           var date_time = [];
           var anhSang = [];
           var turbidity = [];
@@ -54,6 +52,7 @@ const ScrollViewExample = () => {
           setCuongDo(anhSang.reverse());
           setNhietDo(nhietDo.reverse());
           setDoDuc(turbidity.reverse());
+          console.log(time);
         }
       });
   }, []);

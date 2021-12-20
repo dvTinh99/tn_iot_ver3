@@ -50,6 +50,7 @@ const TemperatureSensor = (props) => {
           // yAxisSuffix="°C"
           fromZero = {true}
           yAxisInterval={1} // optional, defaults to 1
+          yLabelsOffset = {20}
           chartConfig={{
             backgroundColor: '#e26a00',
             backgroundGradientFrom: '#07EDED',

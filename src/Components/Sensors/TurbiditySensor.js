@@ -47,8 +47,9 @@ const TurbiditySensor = (props) => {
         renderDotContent={({x, y, index, indexData}) => <Text key={index} style={[styles.dots,{top:y-20,left:x-10 }]}>{indexData}</Text>}
         // yAxisSuffix="v"
         yAxisInterval={1} // optional, defaults to 1
+        yLabelsOffset = {20}
         chartConfig={{
-          data: data.datasets,
+          // data: data.datasets,
           backgroundColor: '#e26a00',
           backgroundGradientFrom: '#ADD8E6',
           backgroundGradientTo: '#2F4F4F',
