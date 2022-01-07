@@ -32,7 +32,7 @@ const LightSensor = (props) => {
 
   return(
     <View style={styles.container}>
-      <Text style={styles.text_style}>Cường Độ Ánh Sáng (lux)</Text>
+      <Text style={styles.text_style}>Light Intensity (lux)</Text>
       <ScrollView 
       ref={scrollRef}
       // showsVerticalScrollIndicator={false}

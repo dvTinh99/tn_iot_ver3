@@ -28,7 +28,7 @@ const TurbiditySensor = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text_style}>Độ đục nước (V)</Text>
+      <Text style={styles.text_style}>Water Turbidity (V)</Text>
       <ScrollView 
       ref={scrollRef}
       // showsVerticalScrollIndicator={false}
@@ -40,7 +40,15 @@ const TurbiditySensor = (props) => {
       <LineChart
         segments={2}
         style={styles.lineChart}
-        data={data}
+        data={{
+          labels: props.time,
+          datasets: [
+            {
+              data: props.doDuc,
+              
+            }
+          ],
+        }}
         width={WIDTH_LINE_CHART} // from react-native
         height={200}
         fromZero = {true}

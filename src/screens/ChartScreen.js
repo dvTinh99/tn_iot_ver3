@@ -3,27 +3,12 @@ import {
   View,
   SafeAreaView,
   Text,
-  Image,
-  ImageBackground,
-  Dimensions,
   StyleSheet,
-  Switch
 } from 'react-native';
-import Slider from "react-native-slider";
 import {
-  TextInput,
   ScrollView,
-  TouchableOpacity,
 } from 'react-native-gesture-handler';
-import MenuIcon from '../image/menu.svg';
-import NhietDoIcon from '../image/nhietdo.svg';
-import DoDucIcon from '../image/doduc.svg';
-import DenIcon from '../image/den.svg';
-import MaiCheIcon from '../image/maiche.svg';
-import SucKhiIcon from '../image/suckhi.svg';
-import SunIcon from '../image/sun.png';
-import ScrollViewExample from '../Components/ScrollViewExample';
-import {LineChart} from 'react-native-chart-kit';
+import ScrollViewChart from '../Components/ScrollViewChart';
 
 const ChartScreen = ({navigation}) => {
   return (
@@ -48,7 +33,7 @@ const ChartScreen = ({navigation}) => {
             color: '#0c9869',
             textAlign: 'right',
           }}>
-          Biểu đồ
+          Charts
         </Text>
       </View>
       {/* Biểu đồ*/}
@@ -65,7 +50,7 @@ const ChartScreen = ({navigation}) => {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false} 
         >
-        <ScrollViewExample />
+        <ScrollViewChart />
         </ScrollView>
       </View>
     </View>

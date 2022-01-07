@@ -52,7 +52,7 @@ const ScrollViewExample = () => {
           setCuongDo(anhSang.reverse());
           setNhietDo(nhietDo.reverse());
           setDoDuc(turbidity.reverse());
-          console.log(time);
+          // console.log(time);
         }
       });
   }, []);

@@ -23,59 +23,64 @@ const BottomTabNavigator = () => {
                     backgroundColor: '#0c9869',
                 },
                 headerTintColor:'#fff',
-                
+                // labelStyle: { textTransform: "none", fontSize:30},
                 // style : {
                 //     height:65,
                 //     justifyContent: 'center',
                 //     paddingVertical:15,
                 //     backgroundColor: '#fff',
+                //     fontSize:100,
                 //     elevation: 2,
                 // },
                 tabBarActiveTintColor:'#0c9869',
+                tabBarLabelStyle: {
+                    fontSize: 15,
+                },
             }}
         >
             <Tab.Screen
-                name="Tổng Quan"
+                name="Home"
                 component={Home}
                 options={{
-                    title:"Tổng quan",
+                    title:"Home",
+                    // style: {fontSize:20},
                     tabBarIcon:({ focused }) => (
                         <TongQuanIcon 
                         style={{ 
-                            tintColor: focused ? '#0c9869' : '#000000'
+                            tintColor: focused ? '#0c9869' : '#575757'
                          }}
-                        width={40} 
-                        height={30} 
+                        width={25} 
+                        height={25} 
                         />
                     )
                  }}
             />
             <Tab.Screen
-                name="Biểu đồ"
+                name="Charts"
                 component={ChartScreen}
                 options={{ 
-                    tabBarLabel:"Biểu Đồ",
+                    tabBarLabel:"Charts",
                     tabBarIcon:({ focused }) => (
                         <BieuDoIcon style={{ 
-                            tintColor: focused ? '#0c9869' : '#000000'
+                            tintColor: focused ? '#0c9869' : '#575757'
                          }}
-                          width={40} 
-                          height={30} />
+                          width={20} 
+                          height={20} />
                     )
                  }}
             />
 
             <Tab.Screen
-                name="Điều Khiển"
+                name="Control"
                 component={Control}
                 options={{ 
-                    tabBarLabel:"Điều khiển",
+                    tabBarLabel:"Control",
                     tabBarIcon:({ focused }) => (
                         <ControlIcon style={{ 
-                            tintColor: focused ? '#0c9869' : '#000000'
+                            tintColor: focused ? '#0c9869' : '#575757'
                          }}
-                         width={40} 
-                         height={30} 
+                         width={22} 
+                         height={22} 
                          />
                     ),
                  }}

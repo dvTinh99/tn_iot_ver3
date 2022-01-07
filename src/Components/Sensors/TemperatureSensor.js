@@ -25,7 +25,7 @@ const TemperatureSensor = (props) => {
 
   return(
     <View style={styles.container}>
-      <Text style={styles.text_style}>Nhiệt Độ Nước (°C)</Text>
+      <Text style={styles.text_style}>Water Temperature (°C)</Text>
       <ScrollView 
       ref={scrollRef}
       // showsVerticalScrollIndicator={false}

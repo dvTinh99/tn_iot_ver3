@@ -72,9 +72,9 @@ const Control = ({navigation}) => {
   const airFlow = (value) => {
     setRange(parseInt(value));
     database()
-      .ref('/control_devices/airpump')
+      .ref('/control_devices')
       .update({
-        status: range,
+        airpump: range,
       })
       .then(() => {
       });
@@ -114,7 +114,7 @@ const Control = ({navigation}) => {
             color: '#0c9869',
             textAlign: 'right',
           }}>
-          Điều khiển tự động
+          Control
         </Text>
         <Switch
           style={{
@@ -174,7 +174,7 @@ const Control = ({navigation}) => {
                     color: '#0c9869',
                     textAlign: 'left',
                   }}>
-                  Điều khiển đèn
+                  Light Control
                 </Text>
                 <View
                   style={{
@@ -209,7 +209,7 @@ const Control = ({navigation}) => {
                         borderRadius: 75,
                       }}>
                       <Text style={{color: '#fff', fontWeight: 'bold'}}>
-                        Mở
+                        On
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -225,7 +225,7 @@ const Control = ({navigation}) => {
                         borderRadius: 75,
                       }}>
                       <Text style={{color: '#fff', fontWeight: 'bold'}}>
-                        Tắt
+                        Off
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -257,7 +257,7 @@ const Control = ({navigation}) => {
                     color: '#0c9869',
                     textAlign: 'left',
                   }}>
-                  Điều khiển màn che
+                  Roof Control
                 </Text>
                 <View
                   style={{
@@ -293,7 +293,7 @@ const Control = ({navigation}) => {
                         borderRadius: 75,
                       }}>
                       <Text style={{color: '#fff', fontWeight: 'bold'}}>
-                        Mở
+                        Open
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -310,7 +310,7 @@ const Control = ({navigation}) => {
                         borderRadius: 75,
                       }}>
                       <Text style={{color: '#fff', fontWeight: 'bold'}}>
-                        Tắt
+                        Close
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -341,7 +341,7 @@ const Control = ({navigation}) => {
                     color: '#0c9869',
                     textAlign: 'left',
                   }}>
-                  Điều khiển sục khí
+                  Airflow Control
                 </Text>
                 <View style={{marginTop: 6}}>
                   <View
