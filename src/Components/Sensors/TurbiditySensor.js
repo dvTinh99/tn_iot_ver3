@@ -38,7 +38,7 @@ const TurbiditySensor = (props) => {
       showsHorizontalScrollIndicator={false} // to hide scroll bar
       >
       <LineChart
-        segments={2}
+        // segments={2}
         style={styles.lineChart}
         data={{
           labels: props.time,
@@ -61,14 +61,14 @@ const TurbiditySensor = (props) => {
           backgroundColor: '#e26a00',
           backgroundGradientFrom: '#ADD8E6',
           backgroundGradientTo: '#2F4F4F',
-          decimalPlaces: 0, // optional, defaults to 2dp
+          decimalPlaces: 2, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
             borderRadius: 50,
           },
         }}
-        // fromZero
+        fromZero
         bezier
       />
         </ScrollView>
