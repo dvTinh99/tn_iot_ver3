@@ -31,7 +31,7 @@ const ScrollViewExample = () => {
             "airflow": air_flow[i] * 12
         }
         await callApi(sensor).then((data) => {
-           predict_from_api.push(data.y_pred.toFixed(5));
+           predict_from_api.push(data.y_pred.toFixed(3));
         });
     }
     setPredict(predict_from_api);
@@ -74,22 +74,22 @@ const ScrollViewExample = () => {
               date_time.push(minute);
               //
               anhSang.shift();
-              anhSang.push(snap.child('lux').val());
+              anhSang.push((snap.child('lux').val()).toFixed(3));
               //
               nhietDo.shift();
-              nhietDo.push(snap.child('temper').val());
+              nhietDo.push((snap.child('temper').val()).toFixed(3));
               //
               turbidity.shift();
-              turbidity.push(snap.child('turbidity').val());
+              turbidity.push((snap.child('turbidity').val()).toFixed(3));
               //
               airflow.shift();
-              airflow.push(snap.child('air_flow').val());
+              airflow.push((snap.child('air_flow').val()).toFixed(3));
             } else {
               date_time.push(minute);
-              anhSang.push(snap.child('lux').val());
-              nhietDo.push(snap.child('temper').val());
-              turbidity.push(snap.child('turbidity').val());
-              airflow.push(snap.child('air_flow').val());
+              anhSang.push((snap.child('lux').val()).toFixed(3));
+              nhietDo.push((snap.child('temper').val()).toFixed(3));
+              turbidity.push((snap.child('turbidity').val()).toFixed(3));
+              airflow.push((snap.child('air_flow').val()).toFixed(3));
             }
           });
           setTime(date_time.reverse());

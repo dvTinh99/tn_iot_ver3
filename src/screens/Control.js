@@ -59,15 +59,12 @@ const Control = ({navigation}) => {
       });
   };
   const autoMode = (value) => {
-    
+    setAuto(value);
     database()
       .ref('/')
       .update({
         auto_mode: value,
       })
-      .then(() => {
-        setAuto(value);
-      });
   }
 
   const airFlow = (value) => {

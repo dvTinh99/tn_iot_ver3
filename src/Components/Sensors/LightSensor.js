@@ -69,12 +69,13 @@ const LightSensor = (props) => {
           //yAxisSuffix // nối thêm string vào y
           yLabelsOffset = {20} // khoảng cách từ các số trục y đến biểu đồ
           chartConfig={{
+            // decimalPlaces: 2,
             // propsForHorizontalLabels:cuongDo,
             // withDots :false,
             backgroundColor: '#e26a00',
             backgroundGradientFrom: '#fb8c00',
             backgroundGradientTo: '#ffa726',
-            decimalPlaces: 0, // số thập phân sau dấu phẩy
+            decimalPlaces: 2, // số thập phân sau dấu phẩy
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {

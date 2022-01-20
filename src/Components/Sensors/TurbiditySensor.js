@@ -61,7 +61,7 @@ const TurbiditySensor = (props) => {
           backgroundColor: '#e26a00',
           backgroundGradientFrom: '#ADD8E6',
           backgroundGradientTo: '#2F4F4F',
-          decimalPlaces: 2, // optional, defaults to 2dp
+          decimalPlaces: 3, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {

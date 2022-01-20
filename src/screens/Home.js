@@ -35,7 +35,7 @@ const Home = ({navigation}) => {
     })
       .then((response) => response.json())
       .then((json) => {
-        setPredict(json.y_pred);
+        setPredict(json.y_pred.toFixed(3));
         setLoading(false);
       })
       .catch((error) => {
@@ -58,28 +58,24 @@ const Home = ({navigation}) => {
       .limitToLast(1)
       .on('value', data => {
 
-        // setLoading(true);
-        let as = undefined;
-        let nd = undefined;
-        let dd = undefined;
-        let sk = undefined;
-        data.forEach(d => {
-          setSucKhi(d.child('air_flow').val());
-          setNhietDo(d.child('temper').val());
-          setDoDuc(d.child('turbidity').val());
-          setAnhSang(d.child('lux').val());
-          as = d.child('lux').val();
-          nd = d.child('temper').val();
-          dd = d.child('turbidity').val();
-          sk = d.child('air_flow').val()
-        });
-        var sensor = {
-          light:as,
-          temper:nd,
-          turbidity:dd,
-          airflow :sk * 12
+        var checkData = data.exists();
+        if(checkData) {
+          var obj = Object.values(data.val())[0];
+
+          setSucKhi(obj.air_flow);
+          setNhietDo(obj.temper);
+          setDoDuc(obj.turbidity);
+          setAnhSang(obj.lux);
+          var sensor = {
+            light:obj.lux,
+            temper:obj.temper,
+            turbidity:obj.turbidity,
+            airflow :obj.air_flow * 12
+          }
+          callApi(sensor);
+        }else{
+          setLoading(false);
         }
-        callApi(sensor);
       });
   });
   return (
