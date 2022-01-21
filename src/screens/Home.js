@@ -62,10 +62,10 @@ const Home = ({navigation}) => {
         if(checkData) {
           var obj = Object.values(data.val())[0];
 
-          setSucKhi(obj.air_flow);
-          setNhietDo(obj.temper);
-          setDoDuc(obj.turbidity);
-          setAnhSang(obj.lux);
+          setSucKhi(obj.air_flow.toFixed(3));
+          setNhietDo(obj.temper.toFixed(3));
+          setDoDuc(obj.turbidity.toFixed(3));
+          setAnhSang(obj.lux.toFixed(3));
           var sensor = {
             light:obj.lux,
             temper:obj.temper,

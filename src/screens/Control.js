@@ -68,11 +68,11 @@ const Control = ({navigation}) => {
   }
 
   const airFlow = (value) => {
-    setRange(parseInt(value));
+    
     database()
       .ref('/control_devices')
       .update({
-        airpump: range,
+        airpump: value,
       })
       .then(() => {
       });
@@ -375,7 +375,8 @@ const Control = ({navigation}) => {
                             <Slider
                               width={'80%'}
                               value={range}
-                              onValueChange={value => airFlow(value)}
+                              onValueChange={value => setRange(parseInt(value))}
+                              onSlidingComplete={value => airFlow(value)}
                               maximumValue={255}
                               minimuneValue={0}
                               step={5}
