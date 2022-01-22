@@ -17,46 +17,36 @@ const Control = ({navigation}) => {
   const button_size = 65;
 
   const lightOn = () => {
+    setLight(true);
     database()
       .ref('/control_devices/led')
       .update({
         status: true,
       })
-      .then(() => {
-        setLight(true);
-      });
   };
   const lightOff = () => {
-    
+    setLight(false);
     database()
       .ref('/control_devices/led')
       .update({
         status: false,
       })
-      .then(() => {
-        setLight(false);
-      });
   };
   const maiCheOn = () => {
+    setMaiChe(true);
     database()
       .ref('/control_devices/motor')
       .update({
         status: true,
       })
-      .then(() => {
-        setMaiChe(true);
-      });
   };
   const maiCheOff = () => {
-    
+    setMaiChe(false);
     database()
       .ref('/control_devices/motor')
       .update({
         status: false,
       })
-      .then(() => {
-        setMaiChe(false);
-      });
   };
   const autoMode = (value) => {
     setAuto(value);

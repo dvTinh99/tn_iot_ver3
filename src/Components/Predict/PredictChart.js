@@ -54,7 +54,7 @@ const PredictChart = (props) => {
             backgroundColor: '#e26a00',
             backgroundGradientFrom: '#0c9869',
             backgroundGradientTo: '#33FF66',
-            decimalPlaces: 0, // optional, defaults to 2dp
+            decimalPlaces: 3, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {

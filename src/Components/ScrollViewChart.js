@@ -21,9 +21,9 @@ const ScrollViewExample = () => {
 
 
 
-  const setPredictChart = async (date_time, lux, turbidity, temper, air_flow) => {
+  const setPredictChart = async (lux, turbidity, temper, air_flow) => {
     let predict_from_api = [];
-    for (let i = 0; i < date_time.length; i++) {
+    for (let i = 0; i < number_lenght + 1; i++) {
         var sensor = {
             "light": lux[i],
             "temper": temper[i],
@@ -31,7 +31,7 @@ const ScrollViewExample = () => {
             "airflow": air_flow[i] * 12
         }
         await callApi(sensor).then((data) => {
-           predict_from_api.push(data.y_pred.toFixed(3));
+          predict_from_api.push(data.y_pred.toFixed(3));
         });
     }
     setPredict(predict_from_api);
@@ -98,10 +98,7 @@ const ScrollViewExample = () => {
           setDoDuc(turbidity.reverse());
           setAirflow(airflow.reverse());
 
-
-          setPredictChart(date_time,anhSang,turbidity,nhietDo,airflow);
-          
-          // console.log(time);          
+          setPredictChart(anhSang,turbidity,nhietDo,airflow);      
         }
       });
   }, []);

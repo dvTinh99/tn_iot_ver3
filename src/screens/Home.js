@@ -62,7 +62,7 @@ const Home = ({navigation}) => {
         if(checkData) {
           var obj = Object.values(data.val())[0];
 
-          setSucKhi(obj.air_flow.toFixed(3));
+          setSucKhi(obj.air_flow.toFixed(2)/5);
           setNhietDo(obj.temper.toFixed(3));
           setDoDuc(obj.turbidity.toFixed(3));
           setAnhSang(obj.lux.toFixed(3));
@@ -77,7 +77,7 @@ const Home = ({navigation}) => {
           setLoading(false);
         }
       });
-  });
+  },[]);
   return (
 
     <View
@@ -118,7 +118,7 @@ const Home = ({navigation}) => {
                       color: '#fff',
                       fontWeight: 'bold',
                     }}>
-                    IoT system for microalgae farming
+                    IoT system for microalgae cultivation
                   </Text>
                 </View>
                 <View style={{width: '35%', alignItems: 'flex-end'}}>
@@ -196,7 +196,7 @@ const Home = ({navigation}) => {
                 <View style={styles.block_right}>
                   <View style={{width: '65%'}}>
                     <Text style={[{fontWeight: 'bold', marginBottom: 10},styles._text]}>
-                      Airflow (dm3)
+                      Airflow (dm3/m)
                     </Text>
                     <Text style={[{fontWeight: 'bold', color: '#0c9869'}, styles._text]}>
                       {sucKhi}

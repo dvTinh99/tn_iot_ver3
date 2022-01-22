@@ -5,7 +5,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from '../screens/Home'
 import ChartScreen from '../screens/ChartScreen'
 import Control from '../screens/Control'
-import HomeIcon from '../Images/feather/home.svg'
 import TongQuanIcon from '../image/summary.svg'
 import BieuDoIcon from '../image/chart.svg'
 import ControlIcon from '../image/control.svg'
